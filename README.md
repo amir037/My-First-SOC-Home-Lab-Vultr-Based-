@@ -82,7 +82,7 @@ Below is the deployment mapping with public and private IPs for each component.
 
 | Component           | Public IP        | Private IP          |
 |---------------------|------------------|---------------------|
-| Elastic & Kibana    | `x.x.x.x`        | `172.31.x.x`        |
+| Elastic & Kibana    | `95.179.252.168` | `172.31.0.3`        |
 | Fleet Server        | `x.x.x.x`        | `172.31.x.x`        |
 | Windows Server      | `x.x.x.x`        | `N/A`        |
 | Ubuntu Server       | `x.x.x.x`        | `N/A`        |
