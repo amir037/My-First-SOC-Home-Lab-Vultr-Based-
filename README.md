@@ -89,3 +89,33 @@ Below is the deployment mapping with public and private IPs for each component.
 | osTicket Server     | `x.x.x.x`        | `172.31.x.x`        |
 | Mythic C2 Server    | `x.x.x.x`        | `172.31.x.x`        |
 
+### 🔧 Step 1: Create the Virtual Private Cloud (VPC)
+
+The first step is to create a **VPC (Virtual Private Cloud)** that connects all lab components within a private address space.
+
+- **VPC CIDR Block:** `172.31.0.0/24`
+- **Subnet Mask:** `255.255.255.0`
+- **Purpose:** Provides internal routing between lab components while still allowing controlled external access (e.g. SSH, RDP, web GUI).
+- This VPC is created within Vultr’s platform and serves as the backbone of the lab environment.
+
+  ![image](https://github.com/user-attachments/assets/520c30fe-7d50-444a-8e5e-b1a611e44fb6)
+
+
+### 🖥️ Step 2: Deploy Lab Instances
+
+Each virtual machine (VM) or server was deployed on Vultr with the required OS and specifications. All tools were installed by following their official documentation to ensure correct setup and updates.
+
+| Component           | OS / Base Image     | Setup Guide |
+|---------------------|---------------------|-------------|
+| **Elastic Stack**   | Ubuntu 22.04        | [Elastic Docs](https://www.elastic.co/guide/en/elastic-stack/current/index.html) |
+| **Fleet Server**    | Ubuntu 22.04        | [Fleet Server Setup](https://www.elastic.co/guide/en/fleet/current/fleet-server.html) |
+| **Windows Server**  | Windows Server 2019 | Manual install + Elastic Agent |
+| **Ubuntu Server**   | Ubuntu 22.04        | Manual install + Elastic Agent |
+| **osTicket Server** | Ubuntu 22.04        | [osTicket Docs](https://docs.osticket.com/en/latest/) |
+| **Mythic C2**       | Ubuntu 22.04        | [Mythic Docs](https://docs.mythic-c2.net/) |
+| **Kali Linux**      | Kali Cloud Image    | [Kali Linux](https://www.kali.org/get-kali/) |
+| **Analyst Laptop**  | Any OS              | No deployment needed (used locally) |
+
+> ⚙️ All installations followed their respective official guides with minimal modifications to ensure compatibility and security.
+
+
