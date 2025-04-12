@@ -57,7 +57,7 @@ All machines are hosted on **[Vultr](https://www.vultr.com/)** using cloud insta
 
 ## 🖼️ Lab Architecture Diagram
 
-![SOC Lab Diagram](./amir.png)
+<img width="1000" alt="image" src="./amir.png">
 
 ---
 
@@ -72,7 +72,7 @@ This lab includes a simulated attack chain that follows the attacker lifecycle f
 5. **Command & Control** – Persistent access established via Mythic C2  
 6. **Exfiltration** – Fake `passwords.txt` file created and "stolen"
 
-![Attack Simulation Diagram](./attack.png)
+<img width="1000" alt="image" src="./attack.png">
 
 ---
 
