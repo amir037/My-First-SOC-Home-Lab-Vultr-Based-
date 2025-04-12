@@ -36,7 +36,7 @@ The goal of this lab is to:
 | osTicket Server     | osTicket            | For handling alerts/tickets      |
 | C2 Server           | Mythic              | Command & control server         |
 | Attack Laptop       | Kali Linux          | Red team / offensive side        |
-| Analyst Laptop      | Any OS              | Used for SOC-level monitoring    |
+| Analyst Laptop      | Windows             | Used for SOC-level monitoring    |
 
 ---
 
