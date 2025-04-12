@@ -73,3 +73,19 @@ This lab includes a simulated attack chain that follows the attacker lifecycle f
 6. **Exfiltration** – Fake `passwords.txt` file created and "stolen"
 
 ![Attack Simulation Diagram](./attack.png)
+
+---
+
+## 🛠️ Deployment Phase
+
+Below is the deployment mapping with public and private IPs for each component.
+
+| Component           | Public IP        | Private IP          |
+|---------------------|------------------|---------------------|
+| Elastic & Kibana    | `x.x.x.x`        | `172.31.x.x`        |
+| Fleet Server        | `x.x.x.x`        | `172.31.x.x`        |
+| Windows Server      | `x.x.x.x`        | `172.31.x.x`        |
+| Ubuntu Server       | `x.x.x.x`        | `172.31.x.x`        |
+| osTicket Server     | `x.x.x.x`        | `172.31.x.x`        |
+| Mythic C2 Server    | `x.x.x.x`        | `172.31.x.x`        |
+
