@@ -113,8 +113,8 @@ Each virtual machine (VM) or server was deployed on Vultr with the required OS a
 | **Ubuntu Server**   | Ubuntu 22.04        | Manual install + Elastic Agent |
 | **osTicket Server** | Ubuntu 22.04        | [osTicket Docs](https://docs.osticket.com/en/latest/) |
 | **Mythic C2**       | Ubuntu 22.04        | [Mythic Docs](https://docs.mythic-c2.net/) |
-| **Kali Linux**      | Kali Cloud Image    | [Kali Linux](https://www.kali.org/get-kali/) |
-| **Analyst Laptop**  | Any OS              | No deployment needed (used locally) |
+| **Kali Linux**      | Kali Local VM       | [Kali Linux](https://www.kali.org/get-kali/) |
+| **Analyst Laptop**  | Windows (Local)     | No deployment needed (used locally) |
 
 > ⚙️ All installations followed their respective official guides with minimal modifications to ensure compatibility and security.
 
