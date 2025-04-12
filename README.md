@@ -84,10 +84,10 @@ Below is the deployment mapping with public and private IPs for each component.
 |---------------------|------------------|---------------------|
 | Elastic & Kibana    | `x.x.x.x`        | `172.31.x.x`        |
 | Fleet Server        | `x.x.x.x`        | `172.31.x.x`        |
-| Windows Server      | `x.x.x.x`        | `172.31.x.x`        |
-| Ubuntu Server       | `x.x.x.x`        | `172.31.x.x`        |
+| Windows Server      | `x.x.x.x`        | `N/A`        |
+| Ubuntu Server       | `x.x.x.x`        | `N/A`        |
 | osTicket Server     | `x.x.x.x`        | `172.31.x.x`        |
-| Mythic C2 Server    | `x.x.x.x`        | `172.31.x.x`        |
+| Mythic C2 Server    | `x.x.x.x`        | `N/A`        |
 
 ### 🔧 Step 1: Create the Virtual Private Cloud (VPC)
 
