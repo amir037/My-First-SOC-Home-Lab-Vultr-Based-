@@ -98,7 +98,7 @@ The first step is to create a **VPC (Virtual Private Cloud)** that connects all 
 - **Purpose:** Provides internal routing between lab components while still allowing controlled external access (e.g. SSH, RDP, web GUI).
 - This VPC is created within Vultr’s platform and serves as the backbone of the lab environment.
 
-  ![image](https://github.com/user-attachments/assets/520c30fe-7d50-444a-8e5e-b1a611e44fb6)
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/520c30fe-7d50-444a-8e5e-b1a611e44fb6">
 
 
 ### 🖥️ Step 2: Deploy Lab Instances
