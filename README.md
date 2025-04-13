@@ -87,7 +87,7 @@ Below is the deployment mapping with public and private IPs for each component.
 | Windows Server      | `45.32.154.93`   | `N/A`               |
 | Ubuntu Server       | `80.240.23.65`   | `N/A`               |
 | osTicket Server     | `x.x.x.x`        | `172.31.x.x`        |
-| Mythic C2 Server    | `x.x.x.x`        | `N/A`               |
+| Mythic C2 Server    | `199.247.23.210` | `N/A`               |
 
 ### 🔧 Step 1: Create the Virtual Private Cloud (VPC)
 
@@ -111,7 +111,7 @@ Each virtual machine (VM) or server was deployed on Vultr with the required OS a
 | **Fleet Server**    | Ubuntu 22.04        | [Fleet Server Setup](https://www.elastic.co/guide/en/fleet/current/fleet-server.html) |
 | **Windows Server**  | Windows Server 2022 | Manual install + Elastic Agent |
 | **Ubuntu Server**   | Ubuntu 22.04        | Manual install + Elastic Agent |
-| **osTicket Server** | Ubuntu 22.04        | [osTicket Docs](https://docs.osticket.com/en/latest/) |
+| **osTicket Server** | Windows Server 2022 | [osTicket Docs](https://docs.osticket.com/en/latest/) |
 | **Mythic C2**       | Ubuntu 22.04        | [Mythic Docs](https://docs.mythic-c2.net/) |
 | **Kali Linux**      | Kali Local VM       | [Kali Linux](https://www.kali.org/get-kali/) |
 | **Analyst Laptop**  | Windows 11 (Local)  | No deployment needed (used locally) |
@@ -224,4 +224,61 @@ The table is useful for quick investigations and spotting brute force patterns o
 
 > 🔐 These dashboards provide visibility into brute force attempts, suspicious remote access, and login patterns across the environment.
 
+---
+## 🧨 Step 4: Simulate an Attack
+
+This phase demonstrates a red team simulation using Kali Linux and Mythic C2. The attack follows a standard adversary kill chain and is designed to simulate common TTPs (Tactics, Techniques, and Procedures) observed in real-world incidents.
+
+---
+
+### 🔓 Phase 1: Initial Access
+
+- The attacker (Kali) initiates a brute-force attack against the Windows Server over RDP.
+- Tools used: `hydra` (for brute-force login) and `xfreerdp` (for interactive session testing).
+- A weak password `Winter2024!` was intentionally configured to simulate poor password hygiene.
+- After multiple failed attempts, the attacker successfully logs in using valid credentials.
+
+---
+
+### 🔍 Phase 2: Discovery
+
+- After gaining access via RDP, the attacker runs built-in commands for enumeration:
+  - `whoami`
+  - `ipconfig`
+  - `net user`, `net group`
+- These commands help the attacker gather information about users, network settings, and potential privilege escalation paths.
+
+---
+
+### 🛡️ Phase 3: Defense Evasion
+
+- The attacker disables Windows Defender using PowerShell.
+- This allows for unrestricted payload execution and simulates real-world bypass techniques.
+- Disabling built-in defenses increases persistence and stealth.
+
+---
+
+### ⚙️ Phase 4: Execution
+
+- A PowerShell command using `Invoke-Expression (IEX)` is used to execute a remote payload in memory.
+- This payload loads a Mythic agent without touching disk, simulating a fileless malware technique.
+- The script is obfuscated to avoid signature-based detection.
+
+---
+
+### 🛰️ Phase 5: Command & Control (C2)
+
+- The Mythic agent establishes a secure connection to the Mythic C2 server.
+- The attacker gains full command-and-control over the compromised Windows Server.
+- Actions include issuing tasks, retrieving host info, and preparing for lateral movement.
+
+---
+
+### 📤 Phase 6: Exfiltration
+
+- A fake file (`passwords.txt`) is created on the victim machine to simulate sensitive data.
+- This file is exfiltrated through the Mythic agent using its built-in file transfer capabilities.
+- Exfiltration happens over the encrypted C2 channel, simulating stealthy data theft.
+
+---
 
