@@ -132,7 +132,7 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
 - **Authentication outcomes**
 - **Login geolocation** 
 
-#### 🪟 Windows Server (RDP)
+#### 🪟 Windows Server
 
 - Data source: `winlogbeat` via Elastic Agent
 - Visualizing:
