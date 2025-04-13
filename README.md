@@ -182,20 +182,45 @@ This table gives a clear timeline of who attempted to connect, from where, and w
 
 - Data source: `syslog` via Elastic Agent
 - Visualizing:
-  - SSH login events with `event.action: user-login`
-  - `event.outcome`:
-    - `success` = authenticated
-    - `failure` = denied
-  - Other fields:
-    - `user.name`
-    - `source.ip`
-    - `host.name`
-    - `Timestamp`
+  - `event.outcome` for success/failure
+  - `user.name` (username that attempted login)
+  - `source.ip` (origin of the attempt)
+  - Timestamps of login attempts
 
-#### 📍 Visualizations Used
+##### 🔍 SSH Failure Detection Query (KQL)
 
-- **Tables** for detailed login entries
-- **Maps** to visualize source IPs by country/city
+```kql
+agent.name :"My-SOC-Ubuntu" and event.category : "authentication"  and event.outcome : "failure" "
+```
+
+This query filters failed SSH login attempts on the host named `My-SOC-Ubuntu-Host`.
+
+##### ✅ SSH Success Detection Query (KQL)
+
+```kql
+agent.name :"My-SOC-Ubuntu" and event.category : "authentication"  and event.outcome : "success" "
+```
+
+This query filters successful SSH login events on the same host.
+
+##### 🗺️ SSH Source IP Map Visualization
+
+We use a **Kibana Maps** visualization to plot geographic origins of SSH login attempts.
+
+This visualization helps identify where login attempts are coming from and spot anomalies.
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/116829df-9fc7-4b18-8f8a-631f09344a67">
+
+
+##### 📋 SSH Login Table Visualization
+
+A **Data Table** visualization gives a clear view into SSH login activity.
+
+The table is useful for quick investigations and spotting brute force patterns or unusual user behavior.
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ee221def-1a7d-4424-ba26-0c033da5a3ad">
+
+
 
 > 🔐 These dashboards provide visibility into brute force attempts, suspicious remote access, and login patterns across the environment.
 
