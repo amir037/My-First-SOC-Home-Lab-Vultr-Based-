@@ -70,7 +70,7 @@ This lab includes a simulated attack chain that follows the attacker lifecycle f
 3. **Defense Evasion** – Disabling Windows Defender  
 4. **Execution** – PowerShell IEX to load Mythic agent  
 5. **Command & Control** – Persistent access established via Mythic C2  
-6. **Exfiltration** – Fake `passwords.txt` file created and "stolen"
+6. **Exfiltration** – Fake `secret-password.txt` file created and "stolen"
 
 <img width="1000" alt="image" src="./attack.png">
 
@@ -273,6 +273,12 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 - This payload loads a Mythic agent (Apollo) without touching disk, simulating a fileless malware technique.
 - The script is obfuscated to avoid signature-based detection.
 
+   <img width="1000" alt="image" src="https://github.com/user-attachments/assets/49e7ef89-071f-4930-9d66-990c4abe8959">
+
+  <br><br>
+   <img width="1000" alt="image" src="https://github.com/user-attachments/assets/eebfbf1b-07e5-4de6-b259-2c9d2b5aaa16">
+
+
 ---
 
 ### 🛰️ Phase 5: Command & Control (C2)
@@ -281,13 +287,20 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 - The attacker gains full command-and-control over the compromised Windows Server.
 - Actions include issuing tasks, retrieving host info, and preparing for lateral movement.
 
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/225e01cc-440f-4905-8559-07920d2827a4">
+
+
+
 ---
 
 ### 📤 Phase 6: Exfiltration
 
-- A fake file (`passwords.txt`) is created on the victim machine to simulate sensitive data.
+- A fake file (`secret-password.txt`) is created on the victim machine to simulate sensitive data.
 - This file is exfiltrated through the Mythic agent using its built-in file transfer capabilities.
 - Exfiltration happens over the encrypted C2 channel, simulating stealthy data theft.
+
+   <img width="1000" alt="image" src="https://github.com/user-attachments/assets/27907c51-b4e7-4669-87b2-78d8b3cd105a">
+
 
 ---
 
