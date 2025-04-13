@@ -129,7 +129,6 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
 - **Failed vs successful login attempts**
 - **Source IP addresses**
 - **Target usernames**
-- **Authentication outcomes**
 - **Login geolocation** 
 
 #### 🪟 Windows Server (RDP)
@@ -159,8 +158,24 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
 ```kql
 event.code: 4624 AND agent.name: "My-SOC-Windows-Host" AND winlog.event_data.LogonType: 10
 ```
+##### 🗺️ RDP Source IP Map Visualization
+
+We also use  **Kibana Maps**  to display the geographic origin of RDP login attempts.
 
 
+
+This map helps visualize suspicious login origins and detect possible brute force attempts from unexpected regions.
+
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/681fc7df-442c-4ec1-8e76-1372feb4811a">
+
+##### 📋 RDP Login Table Visualization
+
+A **Data Table** visualization is used to display detailed RDP login activity.
+
+This table gives a clear timeline of who attempted to connect, from where, and whether they were successful.
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/69d38c0a-9c12-4f40-b386-c7a356858cfc">
 
 
 #### 🐧 Ubuntu Server (SSH)
