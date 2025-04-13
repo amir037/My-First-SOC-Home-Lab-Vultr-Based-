@@ -152,7 +152,7 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
   🧠 Why not filter on LogonType: 10?
   In this lab setup, all failed RDP logins appear as LogonType: 3 instead of 10. This is likely due to how Windows logs pre-authentication RDP handshake failures — especially when using tools like xfreerdp. So     instead, we match on message:*mstsc* to detect RDP login attempts initiated via the Remote Desktop client.
 
-  [Maps-
+  
 
   ##### ✅ RDP Success Detection Query (KQL)
 
