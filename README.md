@@ -238,7 +238,8 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 - A weak password `Winter2024!` was intentionally configured to simulate poor password hygiene.
 - After multiple failed attempts, the attacker successfully logs in using valid credentials.
 
-  
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/4bc565a1-edbd-4922-bc11-4c38c9a9345d">
+
 
 ---
 
@@ -250,6 +251,9 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
   - `net user`, `net group`
 - These commands help the attacker gather information about users, network settings, and potential privilege escalation paths.
 
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/b00f309b-52e5-4a49-b963-e369db0c3044">
+
+
 ---
 
 ### 🛡️ Phase 3: Defense Evasion
@@ -257,6 +261,9 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 - The attacker disables Windows Defender using PowerShell.
 - This allows for unrestricted payload execution and simulates real-world bypass techniques.
 - Disabling built-in defenses increases persistence and stealth.
+
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/dbef702d-1e44-4baf-8223-930a054d13f3">
+
 
 ---
 
