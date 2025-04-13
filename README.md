@@ -132,7 +132,7 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
 - **Authentication outcomes**
 - **Login geolocation** 
 
-#### 🪟 Windows Server
+#### 🪟 Windows Server (RDP)
 
 - Data source: `winlogbeat` via Elastic Agent
 - Visualizing:
@@ -141,6 +141,16 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
   - `user.name` (username that attempted login)
   - `source.ip` (origin of the attempt)
   - Timestamps of login attempts
+
+  ##### 🔍 RDP Failure Detection Query (KQL)
+
+```kql
+event.code: 4625 AND agent.name: "My-SOC-Windows-Host" AND message:*mstsc*
+This filters failed login attempts triggered by the Microsoft RDP client (mstsc.exe) on the host named My-SOC-Windows-Host.
+```
+  🧠 Why not filter on LogonType: 10?
+  In this lab setup, all failed RDP logins appear as LogonType: 3 instead of 10. This is likely due to how Windows logs pre-authentication RDP handshake failures — especially when using tools like xfreerdp. So     instead, we match on message:*mstsc* to detect RDP login attempts initiated via the Remote Desktop client.
+
 
 #### 🐧 Ubuntu Server (SSH)
 
