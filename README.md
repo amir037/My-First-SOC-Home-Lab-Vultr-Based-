@@ -154,7 +154,7 @@ After deploying and enrolling our Windows and Ubuntu servers into Fleet, we crea
     - `user.name`
     - `source.ip`
     - `host.name`
-    - Timestamp
+    - `Timestamp`
 
 #### 📍 Visualizations Used
 
