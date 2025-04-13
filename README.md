@@ -238,6 +238,8 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 - A weak password `Winter2024!` was intentionally configured to simulate poor password hygiene.
 - After multiple failed attempts, the attacker successfully logs in using valid credentials.
 
+  
+
 ---
 
 ### 🔍 Phase 2: Discovery
@@ -261,7 +263,7 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 ### ⚙️ Phase 4: Execution
 
 - A PowerShell command using `Invoke-Expression (IEX)` is used to execute a remote payload in memory.
-- This payload loads a Mythic agent without touching disk, simulating a fileless malware technique.
+- This payload loads a Mythic agent (Apollo) without touching disk, simulating a fileless malware technique.
 - The script is obfuscated to avoid signature-based detection.
 
 ---
