@@ -118,4 +118,49 @@ Each virtual machine (VM) or server was deployed on Vultr with the required OS a
 
 > ⚙️ All installations followed their respective official guides with minimal modifications to ensure compatibility and security.
 
+---
+
+### 📊 Step 3: Create Authentication Dashboards
+
+After deploying and enrolling our Windows and Ubuntu servers into Fleet, we created Kibana dashboards to monitor authentication activity in real time.
+
+#### 👀 What We're Tracking
+
+- **Failed vs successful login attempts**
+- **Source IP addresses**
+- **Target usernames**
+- **Authentication outcomes**
+- **Login geolocation** 
+
+#### 🪟 Windows Server (RDP)
+
+- Data source: `winlogbeat` via Elastic Agent
+- Visualizing:
+  - `event.code: 4624` (Successful login)
+  - `event.code: 4625` (Failed login)
+  - `user.name` (username that attempted login)
+  - `source.ip` (origin of the attempt)
+  - Timestamps of login attempts
+
+#### 🐧 Ubuntu Server (SSH)
+
+- Data source: `syslog` via Elastic Agent
+- Visualizing:
+  - SSH login events with `event.action: user-login`
+  - `event.outcome`:
+    - `success` = authenticated
+    - `failure` = denied
+  - Other fields:
+    - `user.name`
+    - `source.ip`
+    - `host.name`
+    - Timestamp
+
+#### 📍 Visualizations Used
+
+- **Tables** for detailed login entries
+- **Maps** to visualize source IPs by country/city
+
+> 🔐 These dashboards provide visibility into brute force attempts, suspicious remote access, and login patterns across the environment.
+
 
