@@ -85,7 +85,7 @@ Below is the deployment mapping with public and private IPs for each component.
 | Elastic & Kibana    | `95.179.252.168` | `172.31.0.3`        |
 | Fleet Server        | `140.82.35.156`  | `172.31.0.4`        |
 | Windows Server      | `45.32.154.93`   | `N/A`               |
-| Ubuntu Server       | `x.x.x.x`        | `N/A`               |
+| Ubuntu Server       | `80.240.23.65`   | `N/A`               |
 | osTicket Server     | `x.x.x.x`        | `172.31.x.x`        |
 | Mythic C2 Server    | `x.x.x.x`        | `N/A`               |
 
