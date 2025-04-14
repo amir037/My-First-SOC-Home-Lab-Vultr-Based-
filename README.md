@@ -416,6 +416,12 @@ To complete the response workflow:
 
 This ensures incidents are logged and tracked in a formal workflow system.
 
+![image](https://github.com/user-attachments/assets/8d5f394c-128b-4cef-b1aa-2ad7df10d8c3)
+<br><br>
+![image](https://github.com/user-attachments/assets/738430f4-06b2-49f3-807c-049e26b121fe)
+
+
+
 ---
 
 > 📌 This phase ties detection to response — combining real-time prevention with alert triage and case tracking, just like a real SOC workflow.
