@@ -304,3 +304,56 @@ This phase demonstrates a red team simulation using Kali Linux and Mythic C2. Th
 
 ---
 
+## 🕵️ Step 5: Threat Hunting
+
+This phase simulates a real-world blue team scenario where the SOC receives a report from a user — not a detection alert. The hunt begins with minimal context and evolves through investigation and correlation across logs.
+
+---
+
+### 📣 Incident Context
+
+The SOC received a report from a user stating that a suspicious file named `secret-passwords.txt` appeared on their Desktop. No alerts were triggered. The analyst team was tasked with determining what happened, how, and when.
+
+---
+
+### 🗺️ Step 1: Initial Recon — Investigating Login Origins
+
+- We started by reviewing **Kibana Maps** to visualize geographic origins of login attempts.
+- RDP login attempts from unusual countries stood out immediately.
+- Combined with the RDP login table, we were able to confirm that one of these attempts eventually succeeded — coming from an unfamiliar location.
+
+  <img width="1000" alt="image" src="https://github.com/user-attachments/assets/3eef41ea-b960-4abf-a9b6-6d86f0c61de7">
+
+  
+
+
+---
+
+### 🐚 Step 2: Investigate Remote Command Activity
+
+- We then pivoted to PowerShell and process logs for deeper insight.
+- We observed:
+  - Use of `Invoke-WebRequest` to download a remote script
+  - Followed by `Invoke-Expression (IEX)` to execute the downloaded content
+- This strongly indicated **fileless execution of a payload**, likely related to C2 activity.
+
+---
+
+### 🧱 Step 3: Check for AV/EDR Evasion
+
+- Defender logs showed the use of `Set-MpPreference` to disable several protection layers.
+- This included real-time monitoring, behavior monitoring, and script scanning.
+- This step confirmed that the attacker actively attempted to evade detection.
+
+---
+
+### 📤 Step 4: Confirm Exfiltration Behavior
+
+- Minutes after the script execution, the suspicious file `secret-password.txt` was accessed and copied.
+- The process responsible for accessing the file had previously established an HTTPS connection to an external IP.
+- This behavior aligned with a typical exfiltration phase in a C2-controlled attack.
+
+---
+
+> 🧠 This threat hunt was conducted manually using Elastic dashboards, Maps, and Discover views. It mirrors how real SOCs triage user-reported incidents with limited initial context and piece together the full story through log correlation.
+
