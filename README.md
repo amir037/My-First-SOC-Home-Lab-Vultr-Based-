@@ -400,6 +400,8 @@ Once the detection rule triggers:
 
 > 🧪 We simulated this by manually triggering the rule and verifying that the endpoint responded in real-time.
 
+![image](https://github.com/user-attachments/assets/8d5f394c-128b-4cef-b1aa-2ad7df10d8c3)
+
 ---
 
 ### 📬 Alerting via osTicket
@@ -416,8 +418,7 @@ To complete the response workflow:
 
 This ensures incidents are logged and tracked in a formal workflow system.
 
-![image](https://github.com/user-attachments/assets/8d5f394c-128b-4cef-b1aa-2ad7df10d8c3)
-<br><br>
+
 ![image](https://github.com/user-attachments/assets/738430f4-06b2-49f3-807c-049e26b121fe)
 
 
